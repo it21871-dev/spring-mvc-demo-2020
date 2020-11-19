@@ -22,7 +22,7 @@ public class TestDbServlet extends HttpServlet {
         String jdbcUrl = "jdbc:mysql://localhost:3306/hb_student_tracker?useSSL=false";
         String user = "hbstudent";
         String pass = "changeit";
-        String driver= "com.mysql.jdbc.Driver";
+        String driver= "com.mysql.cj.jdbc.Driver";
 
         // get connection to db
         try {
