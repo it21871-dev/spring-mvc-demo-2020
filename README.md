@@ -36,3 +36,26 @@ To fix the errors in jsp files, you should again right click the project, and in
 ![Target Runtime](screenshots/targeted-runtimes.png "Targeted Runtimes")
 
 Also, don't forget to convert the project to maven project (Configure->Convert to Maven Project) and select Maven--> Update Project from the menu appearing when right-clicking the project.
+
+## Clone Project in IntelliJ
+
+### Configure IntelliJ to use local Tomcat
+
+Select Run &rarr; Edit Configurations, Then the plus (+) symbol and select Tomcat Server &rarr; Local.
+![Target Runtime](screenshots/intellij-tomcat-config.png "Targeted Runtimes")
+Set the location and then press the "fix" button 
+
+![Target Runtime](screenshots/intellij-tomcat-config-1.png "Targeted Runtimes")
+
+and select an artifact to deploy.
+![Target Runtime](screenshots/intellij-tomcat-config-2.png "Targeted Runtimes")
+
+### Fix ``cannot resolve import javax.servlet.*``
+
+Go to File &rarr; Project Structure 
+Select Modules &rarr; [your module name] &rarr; Dependencies and click the plus symbol (+)
+
+![Target Runtime](screenshots/intellij-tomcat-fix.png "Targeted Runtimes")
+and select "Application Server Libraries &rarr; Tomcat X.X.X"
+![Target Runtime](screenshots/intellij-tomcat-fix-1.png "Targeted Runtimes")
+
