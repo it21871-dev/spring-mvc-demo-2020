@@ -1,4 +1,29 @@
 # spring-mvc-demo-2020
+## Prerequisites
+### Database
+
+#### Using Docker
+[Install Docker](https://docs.docker.com/get-docker/)
+
+```bash
+docker run --name mysqldb -v mysqldbvol:/var/lib/mysql -p 3306:3306 -e MYSQL_USER=mysql -e MYSQL_PASSWORD=mysql -e MYSQL_DATABASE=students -e MYSQL_ROOT_PASSWORD=pass123 --rm -d mysql/mysql-server:latest
+```
+connect to mysql
+```bash
+mysql -h 127.0.0.1 -u root -P 3306 -p
+```
+### Application properties
+Create a file named application.properties
+```bash
+
+jdbc.url=jdbc:mysql://SERVER:PORT/DATABASE?useSSL=false
+jdbc.user=USERNAME
+jdbc.password=PASSWORD
+jdbc.driver=com.mysql.cj.jdbc.Driver
+
+hibernate.dialect=org.hibernate.dialect.MySQLDialect
+hibernate.show_sql=true
+```
 
 ## Clone Project into Eclipse
 
