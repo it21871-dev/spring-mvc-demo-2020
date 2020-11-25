@@ -16,7 +16,7 @@ mysql -h 127.0.0.1 -u root -P 3306 -p
 Create a file named application.properties
 ```bash
 
-jdbc.url=jdbc:mysql://SERVER:PORT/DATABASE?useSSL=false
+jdbc.url=jdbc:mysql://SERVER:PORT/DATABASE?useSSL=false&allowPublicKeyRetrieval=true
 jdbc.user=USERNAME
 jdbc.password=PASSWORD
 jdbc.driver=com.mysql.cj.jdbc.Driver
