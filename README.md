@@ -6,11 +6,15 @@
 [Install Docker](https://docs.docker.com/get-docker/)
 
 ```bash
-docker run --name mysqldb -v mysqldbvol:/var/lib/mysql -p 3306:3306 -e MYSQL_USER=mysql -e MYSQL_PASSWORD=mysql -e MYSQL_DATABASE=students -e MYSQL_ROOT_PASSWORD=pass123 --rm -d mysql/mysql-server:latest
+docker run --name mysqldb -v mysqldbvol:/var/lib/mysql -p 3306:3306 -e MYSQL_USER=<MYSQL-USERNAME> -e MYSQL_PASSWORD=<MYSQL-PASSWORD> -e MYSQL_DATABASE=<DATABASE> -e MYSQL_ROOT_PASSWORD=<ROOT-PASSWORD> --rm -d mysql/mysql-server:latest
 ```
 connect to mysql
 ```bash
-mysql -h 127.0.0.1 -u root -P 3306 -p
+mysql -h 127.0.0.1 -u <MYSQL-USERNAME> -p
+```
+import db schema (e.g schema.sql file)
+```bash
+mysql -h 127.0.0.1 -u <MYSQL-USERNAME> -p <DATABASE>  < schema.sql
 ```
 ### Application properties
 Create a file named application.properties
