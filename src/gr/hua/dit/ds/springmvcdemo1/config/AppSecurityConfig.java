@@ -36,6 +36,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
 		.anyRequest().authenticated() // all requests are authenticated
 		.and()
 		.formLogin().permitAll() //allow "/login"
+		.defaultSuccessUrl("/", true) // set default page for success login
 		.and()
 		.logout().permitAll(); // allow "logout"
 	}
