@@ -1,4 +1,33 @@
 # spring-mvc-demo-2020
+## Prerequisites
+### Database
+
+#### Using Docker
+[Install Docker](https://docs.docker.com/get-docker/)
+
+```bash
+docker run --name mysqldb -v mysqldbvol:/var/lib/mysql -p 3306:3306 -e MYSQL_USER=<MYSQL-USERNAME> -e MYSQL_PASSWORD=<MYSQL-PASSWORD> -e MYSQL_DATABASE=<DATABASE> -e MYSQL_ROOT_PASSWORD=<ROOT-PASSWORD> --rm -d mysql/mysql-server:latest
+```
+connect to mysql
+```bash
+mysql -h 127.0.0.1 -u <MYSQL-USERNAME> -p
+```
+import db schema (e.g schema.sql file)
+```bash
+mysql -h 127.0.0.1 -u <MYSQL-USERNAME> -p <DATABASE>  < schema.sql
+```
+### Application properties
+Create a file named application.properties
+```bash
+
+jdbc.url=jdbc:mysql://SERVER:PORT/DATABASE?useSSL=false&allowPublicKeyRetrieval=true
+jdbc.user=USERNAME
+jdbc.password=PASSWORD
+jdbc.driver=com.mysql.cj.jdbc.Driver
+
+hibernate.dialect=org.hibernate.dialect.MySQLDialect
+hibernate.show_sql=true
+```
 
 ## Clone Project into Eclipse
 
@@ -36,3 +65,26 @@ To fix the errors in jsp files, you should again right click the project, and in
 ![Target Runtime](screenshots/targeted-runtimes.png "Targeted Runtimes")
 
 Also, don't forget to convert the project to maven project (Configure->Convert to Maven Project) and select Maven--> Update Project from the menu appearing when right-clicking the project.
+
+## Clone Project in IntelliJ
+
+### Configure IntelliJ to use local Tomcat
+
+Select Run &rarr; Edit Configurations, Then the plus (+) symbol and select Tomcat Server &rarr; Local.
+![Target Runtime](screenshots/intellij-tomcat-config.png "Targeted Runtimes")
+Set the location and then press the "fix" button 
+
+![Target Runtime](screenshots/intellij-tomcat-config-1.png "Targeted Runtimes")
+
+and select an artifact to deploy.
+![Target Runtime](screenshots/intellij-tomcat-config-2.png "Targeted Runtimes")
+
+### Fix ``cannot resolve import javax.servlet.*``
+
+Go to File &rarr; Project Structure 
+Select Modules &rarr; [your module name] &rarr; Dependencies and click the plus symbol (+)
+
+![Target Runtime](screenshots/intellij-tomcat-fix.png "Targeted Runtimes")
+and select "Application Server Libraries &rarr; Tomcat X.X.X"
+![Target Runtime](screenshots/intellij-tomcat-fix-1.png "Targeted Runtimes")
+
